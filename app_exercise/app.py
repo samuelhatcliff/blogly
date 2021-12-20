@@ -29,13 +29,13 @@ def home():
     # If table isn't empty, empty it
     User.query.delete()
 
-    sam = User(first_name='Sam', last_name="Hatcliff", image_url="/photos/sam_photo.jpg")
-    stephany = User(first_name='Stephany', last_name="Garcia", image_url="/photos/1.png")
-    steve = User(first_name='Steve', last_name="Johnson", image_url="/photos/2.jpeg")
-    dustin = User(first_name='Dustin', last_name="Hayes", image_url="/photos/3.jpeg")
-    tim = User(first_name='Tim', last_name="Smith", image_url="/photos/4.png")
-    mason = User(first_name='Mason', last_name="Torabi", image_url="/photos/5.jpeg")
-    gabby = User(first_name='Gabby', last_name="Smith", image_url="/photos/6.jpeg")
+    sam = User(first_name='Sam', last_name="Hatcliff", image_url="/static/photos/6.jpeg")
+    stephany = User(first_name='Stephany', last_name="Garcia", image_url="static/photos/1.png")
+    steve = User(first_name='Steve', last_name="Johnson", image_url="static/photos/2.jpeg")
+    dustin = User(first_name='Dustin', last_name="Hayes", image_url="static/photos/3.jpeg")
+    tim = User(first_name='Tim', last_name="Smith", image_url="static/photos/4.png")
+    mason = User(first_name='Mason', last_name="Torabi", image_url="static/photos/5.jpeg")
+    gabby = User(first_name='Gabby', last_name="Smith", image_url="/static/photos/6.jpeg")
 
     db.session.add(sam)
     db.session.add(stephany)
@@ -100,7 +100,7 @@ def edit_user(user_id):
     db.session.commit()
     return redirect ("/users") 
 
-@app.route('/users/<int:user_id>/remove')
+@app.route('/users/<int:user_id>/remove', methods=["POST"])
 def delete_user(user_id):
     User.query.filter_by(id=user_id).delete()
     db.session.commit()
@@ -111,7 +111,7 @@ def get_new_post_form(user_id):
     user = User.query.get_or_404(user_id)
     return render_template('new_post.html', user=user)
     
-@app.route('/users/<int:user_id>/posts/new', methods=["POST"])
+@app.route('/users/<int:user_id>/posts/new')
 def post_form(user_id):
     user = User.query.get_or_404(user_id)
     post = Post(title=request.form["title"], content=request.form["content"], author=user.id)

@@ -10,7 +10,7 @@ class Seed():
     # If table isn't empty, empty it
     User.query.delete()
 
-    sam = User(first_name='Sam', last_name="Hatcliff", image_url="/photos/sam_photo.jpg")
+    sam = User(first_name='Sam', last_name="Hatcliff", image_url="/photos/2.jpeg")
     stephany = User(first_name='Stephany', last_name="Garcia", image_url="/photos/1.png")
     steve = User(first_name='Steve', last_name="Johnson", image_url="/photos/2.jpeg")
     dustin = User(first_name='Dustin', last_name="Hayes", image_url="/photos/3.jpeg")
