@@ -1,3 +1,8 @@
 This is temp file that will be replaced by source code.
 
+
 John's changes
+
+Change made by Sam.
+
+
