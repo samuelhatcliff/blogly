@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, redirect, flash, session
 import psycopg2
 from flask_debugtoolbar import DebugToolbarExtension 
-from models import db, connect_db, User, Post
+from models import db, connect_db, User, Post, Tag, PostTag
 
 
 
@@ -9,7 +9,7 @@ from models import db, connect_db, User, Post
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///users_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///blogly'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 app.config['SECRET_KEY'] = "topsecret1"
@@ -26,8 +26,7 @@ def home():
     db.drop_all()
     db.create_all()
 
-    # If table isn't empty, empty it
-    User.query.delete()
+   
 
     sam = User(first_name='Sam', last_name="Hatcliff", image_url="/static/photos/6.jpeg")
     steve = User(first_name='Steve', last_name="Johnson", image_url="static/photos/2.jpeg")
@@ -96,7 +95,8 @@ def edit_user(user_id):
 
 @app.route('/users/<int:user_id>/remove', methods=["POST"])
 def delete_user(user_id):
-    User.query.filter_by(id=user_id).delete()
+    user = User.query.get_or_404(user_id)
+    db.session.delete(user)
     db.session.commit()
     return redirect ("/users") 
     
