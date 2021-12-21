@@ -30,20 +30,14 @@ def home():
     User.query.delete()
 
     sam = User(first_name='Sam', last_name="Hatcliff", image_url="/static/photos/6.jpeg")
-    stephany = User(first_name='Stephany', last_name="Garcia", image_url="static/photos/1.png")
     steve = User(first_name='Steve', last_name="Johnson", image_url="static/photos/2.jpeg")
     dustin = User(first_name='Dustin', last_name="Hayes", image_url="static/photos/3.jpeg")
-    tim = User(first_name='Tim', last_name="Smith", image_url="static/photos/4.png")
-    mason = User(first_name='Mason', last_name="Torabi", image_url="static/photos/5.jpeg")
-    gabby = User(first_name='Gabby', last_name="Smith", image_url="/static/photos/6.jpeg")
+    jeff = User(first_name='Jeff', last_name="Smith", image_url="/static/photos/6.jpeg")
 
     db.session.add(sam)
-    db.session.add(stephany)
     db.session.add(steve)
     db.session.add(dustin)
-    db.session.add(tim)
-    db.session.add(mason)
-    db.session.add(gabby)
+    db.session.add(jeff)
 
     db.session.commit()
     return redirect ("users")
@@ -111,7 +105,7 @@ def get_new_post_form(user_id):
     user = User.query.get_or_404(user_id)
     return render_template('new_post.html', user=user)
     
-@app.route('/users/<int:user_id>/posts/new')
+@app.route('/users/<int:user_id>/posts/new', methods=["POST"])
 def post_form(user_id):
     user = User.query.get_or_404(user_id)
     post = Post(title=request.form["title"], content=request.form["content"], author=user.id)

@@ -19,6 +19,7 @@ class User(db.Model):
     #still accepts no first name even though nullable is set to false. why?
     last_name = db.Column(db.String(25), nullable=False)
     image_url = db.Column(db.String(), default= "https://www.freeiconspng.com/uploads/icon-user-blue-symbol-people-person-generic--public-domain--21.png")
+    posts = db.relationship("Post", backref="user", cascade="all, delete-orphan")
     
     
 class Post(db.Model):
@@ -34,7 +35,7 @@ class Post(db.Model):
     created_at = db.Column(db.DateTime, nullable=False,
         default= datetime.now())
     author = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    user = db.relationship('User', backref="posts")
+    # user = db.relationship('User', backref="posts", single_parent=True, cascade="all, delete-orphan")
     
     tags = db.relationship('Tag', secondary = 'post_tags', backref="posts")
     
