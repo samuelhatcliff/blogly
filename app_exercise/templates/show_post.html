@@ -2,7 +2,18 @@
 {% block content %}
 <h1>{{post.title}}</h1>
 <p>{{post.content}}</p>
-<em>By {{post.user.first_name}} {{post.user.last_name}}</em>
+<em>By <a href="/{{post.user.id}}">{{post.user.first_name}} {{post.user.last_name}} </a> </em>
+
+
+
+
+<b>Tags:</b>
+{% for tag in tags%}
+<span></span>
+<a href="/tags/{{tag.id}}">{{tag.name}}</a>,
+</span>
+{% endfor %}
+
 
 <form action="/posts/{{post.id}}/edit">
     <input type="submit" value="Edit" />

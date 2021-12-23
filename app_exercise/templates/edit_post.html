@@ -8,6 +8,15 @@
     <label for="content">Content</label>
     <input type="text" name="content" value="{{post.content}}">
     <input type="submit" value="Submit Changes">
+    {% for tag in all_tags%}
+    {% if tag in post_tags%}
+    <input type="checkbox" name="tag" value={{tag.id}} checked>
+    <label for="tags">{{tag.name}}</label>
+    {% else %}
+    <input type="checkbox" name="tag" value={{tag.id}}>
+    <label for="tags">{{tag.name}}</label>
+    {% endif %}
+    {% endfor %}
 </form>
 
 
