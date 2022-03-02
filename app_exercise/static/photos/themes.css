@@ -1,0 +1,291 @@
+/* general foundational styles */
+body {
+    padding: 0;
+    margin: 0;
+    background: black !important;
+    font-family: 'Abel', sans-serif !important;
+    /*possibly change nav font to this^^*/
+}
+ul {
+    padding: 0;
+    list-style-type: none;
+    margin: auto;
+}
+#indentation {
+    margin-bottom: 100px;
+    margin-right:0px
+}
+@media only screen and (max-width: 576px) {
+    ul {
+    list-style-type: none;
+    /* margin-left:40px; */
+    }
+    #stories {
+    margin-left:40px;
+    }
+}
+
+
+/* card styles for each news story*/
+
+
+.row {
+    margin: auto;
+}
+
+
+.container {
+    background: #242424;
+    margin: auto;
+    border-radius: 30px;
+}
+
+
+
+
+.card {
+    justify-content: center;
+    margin: auto;
+    border-radius: 10px;
+    transition-duration: 0.5s;
+}
+.card:hover {
+    border-width: 1px;
+    background: #ade7ff;
+    margin: auto;
+    box-shadow: 1px 1px 10px 10px #95eeee;
+    
+}
+
+.card-body {
+    background: #3d3d3d;
+    border-radius: 10px;
+    justify-content: center;
+    transition-duration: 0.5s;
+}
+
+.card-body:hover {
+    background: rgb(65, 65, 65)
+}
+
+.results {
+    color:whitesmoke;
+    margin:auto;
+    }
+
+#date {
+    color:gainsboro;
+}
+
+#image {
+    margin-bottom: 10px;
+    border-radius: 40px;
+}
+
+
+
+/* more specific card styles to adapt to the behavior of mobile devices*/
+
+
+@media only screen and (max-width: 768px) {
+    #left-b{
+        margin-bottom: 10px;
+        order: 1;
+    }
+    #image {
+        order: 0;
+        width: 100%;
+    }
+    #right-b{
+        margin-bottom: 10px;
+        order: 1;
+    }
+    
+}
+@media only screen and (max-width: 576px) {
+    .container {
+        margin-left: -20px;
+        justify-content: center;
+    }
+    #image {
+        margin-top: -20px;
+        order:0;
+    }
+    #search{
+        display:none;
+    }
+}
+
+
+/* form styling */
+
+
+.form {
+    color: whitesmoke;
+}
+
+.form-alert {
+        margin: 20px;
+}
+
+h1 {
+    color:whitesmoke;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.submit-b {
+    margin-bottom:20px;
+}
+
+#content {
+    color:white;
+    margin-top: 5px;
+}
+
+.headline {
+    margin-top: 12px;
+    color:gainsboro;
+}
+
+.headline:hover {
+    text-decoration: none;
+    color: #a3a3a3;
+    border-radius: 40px;
+}
+
+/* navbar styles*/
+
+
+
+
+
+.navbar {
+    background-color: black;
+    color:rgb(65, 65, 65);
+    overflow: hidden;
+    /* padding:0px; */
+    /* margin:100px; */
+}
+.navbar-toggler {
+    margin-right:10px;
+}
+
+.nav-item {
+    margin:auto;
+    color: #f2f2f2; 
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 0px;
+    text-decoration: none;
+    font-size: 17px;
+    transition-duration: 0.25s;
+    font-size:16px;
+}
+
+.navbar-nav{
+    margin:0px;
+    text-align: right !important;
+
+    /* WHY NO WORK??? I WANT TO SEARCH TO BE IN MIDDLE, THIS TO BE IN RIGHT UNTIL CERTAIN PIXEL RANGE */
+}
+
+.nav-item:hover {
+    background-color:rgb(119, 119, 119) ;
+    color: black;
+    text-decoration: none;
+}
+
+#search{
+    margin-right: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    #search{
+        display:none;
+        order:0;
+    
+    }
+}
+
+#nav-msg-spc {
+margin-top: 100px;
+}
+
+
+
+
+
+/* Slideshow */
+
+#home {
+    /* background:rgb(197, 77, 77); */
+    margin:0px;
+    margin-left: 0px;
+    margin-right: 0px ;
+    padding-right: 0px;
+}
+
+#slideshows {
+    text-align: right;
+    justify-content: right;
+}
+
+#slideshow {
+    margin:auto
+}
+
+
+h4 {
+    color:white;
+    margin:auto
+}
+.heading {
+    margin: 10px;
+    text-align: center;
+}
+h5 {
+    color:white;
+    margin:auto
+}
+
+.carousel-caption {
+ 
+    justify-content: center;
+}
+
+.announce {
+    margin:10px;
+}
+
+
+
+#cat {
+    margin:10px;
+}
+
+
+/**/
+p {
+    color:whitesmoke
+}
+
+/* #column {
+    margin:0px;
+} */
+
+
+
+.carousel-caption a{
+	color:#fff;
+	font-weight: bold;
+}
+
+.carousel-caption {
+    margin-top: 50px;
+	text-align:center;
+	padding:10px;
+	background:rgba(0,0,0,0.4);
+	text-shadow:none;
+    justify-content: center;
+}
+
+
